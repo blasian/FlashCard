@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		580F4C0D19E388D5009116AD /* FLASHFrontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580F4C0C19E388D5009116AD /* FLASHFrontViewController.m */; };
+		58254F551A43DC1700511154 /* TBController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58254F541A43DC1700511154 /* TBController.m */; };
 		58CB345E19B9238000B50F19 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CB345D19B9238000B50F19 /* Foundation.framework */; };
 		58CB346019B9238000B50F19 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CB345F19B9238000B50F19 /* CoreGraphics.framework */; };
 		58CB346219B9238000B50F19 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CB346119B9238000B50F19 /* UIKit.framework */; };
 		58CB346819B9238000B50F19 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58CB346619B9238000B50F19 /* InfoPlist.strings */; };
 		58CB346A19B9238000B50F19 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CB346919B9238000B50F19 /* main.m */; };
 		58CB346E19B9238000B50F19 /* FLASHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CB346D19B9238000B50F19 /* FLASHAppDelegate.m */; };
-		58CB347119B9238000B50F19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58CB346F19B9238000B50F19 /* Main.storyboard */; };
-		58CB347419B9238000B50F19 /* FLASHMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CB347319B9238000B50F19 /* FLASHMasterViewController.m */; };
-		58CB347719B9238000B50F19 /* FLASHDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CB347619B9238000B50F19 /* FLASHDetailViewController.m */; };
+		58CB347419B9238000B50F19 /* FLASHSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CB347319B9238000B50F19 /* FLASHSetViewController.m */; };
+		58CB347719B9238000B50F19 /* FLASHCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CB347619B9238000B50F19 /* FLASHCardViewController.m */; };
 		58CB347919B9238000B50F19 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58CB347819B9238000B50F19 /* Images.xcassets */; };
 		58CB348019B9238000B50F19 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CB347F19B9238000B50F19 /* XCTest.framework */; };
 		58CB348119B9238000B50F19 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CB345D19B9238000B50F19 /* Foundation.framework */; };
 		58CB348219B9238000B50F19 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CB346119B9238000B50F19 /* UIKit.framework */; };
 		58CB348A19B9238000B50F19 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58CB348819B9238000B50F19 /* InfoPlist.strings */; };
 		58CB348C19B9238000B50F19 /* FlashCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CB348B19B9238000B50F19 /* FlashCardTests.m */; };
+		58CB349719B924AA00B50F19 /* FLASHCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CB349619B924AA00B50F19 /* FLASHCard.m */; };
+		58CB349A19B925A300B50F19 /* FLASHSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CB349919B925A300B50F19 /* FLASHSet.m */; };
+		58CB349D19B92FB500B50F19 /* FLASHSetStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CB349C19B92FB500B50F19 /* FLASHSetStore.m */; };
+		58E0643419FB29F9002D3547 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58E0643219FB29F9002D3547 /* Main.storyboard */; };
+		58E7262419B944110033454E /* FLASHCardStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E7262319B944110033454E /* FLASHCardStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		580F4C0B19E388D5009116AD /* FLASHFrontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLASHFrontViewController.h; sourceTree = "<group>"; };
+		580F4C0C19E388D5009116AD /* FLASHFrontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLASHFrontViewController.m; sourceTree = "<group>"; };
+		58254F531A43DC1700511154 /* TBController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBController.h; sourceTree = "<group>"; };
+		58254F541A43DC1700511154 /* TBController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBController.m; sourceTree = "<group>"; };
 		58CB345A19B9238000B50F19 /* FlashCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58CB345D19B9238000B50F19 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58CB345F19B9238000B50F19 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,17 +55,25 @@
 		58CB346B19B9238000B50F19 /* FlashCard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlashCard-Prefix.pch"; sourceTree = "<group>"; };
 		58CB346C19B9238000B50F19 /* FLASHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLASHAppDelegate.h; sourceTree = "<group>"; };
 		58CB346D19B9238000B50F19 /* FLASHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLASHAppDelegate.m; sourceTree = "<group>"; };
-		58CB347019B9238000B50F19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		58CB347219B9238000B50F19 /* FLASHMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLASHMasterViewController.h; sourceTree = "<group>"; };
-		58CB347319B9238000B50F19 /* FLASHMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLASHMasterViewController.m; sourceTree = "<group>"; };
-		58CB347519B9238000B50F19 /* FLASHDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLASHDetailViewController.h; sourceTree = "<group>"; };
-		58CB347619B9238000B50F19 /* FLASHDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLASHDetailViewController.m; sourceTree = "<group>"; };
+		58CB347219B9238000B50F19 /* FLASHSetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLASHSetViewController.h; sourceTree = "<group>"; };
+		58CB347319B9238000B50F19 /* FLASHSetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLASHSetViewController.m; sourceTree = "<group>"; };
+		58CB347519B9238000B50F19 /* FLASHCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLASHCardViewController.h; sourceTree = "<group>"; };
+		58CB347619B9238000B50F19 /* FLASHCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLASHCardViewController.m; sourceTree = "<group>"; };
 		58CB347819B9238000B50F19 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		58CB347E19B9238000B50F19 /* FlashCardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashCardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		58CB347F19B9238000B50F19 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		58CB348719B9238000B50F19 /* FlashCardTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlashCardTests-Info.plist"; sourceTree = "<group>"; };
 		58CB348919B9238000B50F19 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		58CB348B19B9238000B50F19 /* FlashCardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlashCardTests.m; sourceTree = "<group>"; };
+		58CB349519B924AA00B50F19 /* FLASHCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLASHCard.h; sourceTree = "<group>"; };
+		58CB349619B924AA00B50F19 /* FLASHCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLASHCard.m; sourceTree = "<group>"; };
+		58CB349819B925A300B50F19 /* FLASHSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLASHSet.h; sourceTree = "<group>"; };
+		58CB349919B925A300B50F19 /* FLASHSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLASHSet.m; sourceTree = "<group>"; };
+		58CB349B19B92FB500B50F19 /* FLASHSetStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLASHSetStore.h; sourceTree = "<group>"; };
+		58CB349C19B92FB500B50F19 /* FLASHSetStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLASHSetStore.m; sourceTree = "<group>"; };
+		58E0643319FB29F9002D3547 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		58E7262219B944110033454E /* FLASHCardStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLASHCardStore.h; sourceTree = "<group>"; };
+		58E7262319B944110033454E /* FLASHCardStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLASHCardStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,13 +133,25 @@
 		58CB346319B9238000B50F19 /* FlashCard */ = {
 			isa = PBXGroup;
 			children = (
+				58E0643219FB29F9002D3547 /* Main.storyboard */,
+				58254F531A43DC1700511154 /* TBController.h */,
+				58254F541A43DC1700511154 /* TBController.m */,
 				58CB346C19B9238000B50F19 /* FLASHAppDelegate.h */,
 				58CB346D19B9238000B50F19 /* FLASHAppDelegate.m */,
-				58CB346F19B9238000B50F19 /* Main.storyboard */,
-				58CB347219B9238000B50F19 /* FLASHMasterViewController.h */,
-				58CB347319B9238000B50F19 /* FLASHMasterViewController.m */,
-				58CB347519B9238000B50F19 /* FLASHDetailViewController.h */,
-				58CB347619B9238000B50F19 /* FLASHDetailViewController.m */,
+				580F4C0B19E388D5009116AD /* FLASHFrontViewController.h */,
+				580F4C0C19E388D5009116AD /* FLASHFrontViewController.m */,
+				58CB347519B9238000B50F19 /* FLASHCardViewController.h */,
+				58CB347619B9238000B50F19 /* FLASHCardViewController.m */,
+				58CB347219B9238000B50F19 /* FLASHSetViewController.h */,
+				58CB347319B9238000B50F19 /* FLASHSetViewController.m */,
+				58CB349519B924AA00B50F19 /* FLASHCard.h */,
+				58CB349619B924AA00B50F19 /* FLASHCard.m */,
+				58E7262219B944110033454E /* FLASHCardStore.h */,
+				58E7262319B944110033454E /* FLASHCardStore.m */,
+				58CB349B19B92FB500B50F19 /* FLASHSetStore.h */,
+				58CB349C19B92FB500B50F19 /* FLASHSetStore.m */,
+				58CB349819B925A300B50F19 /* FLASHSet.h */,
+				58CB349919B925A300B50F19 /* FLASHSet.m */,
 				58CB347819B9238000B50F19 /* Images.xcassets */,
 				58CB346419B9238000B50F19 /* Supporting Files */,
 			);
@@ -234,9 +264,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58E0643419FB29F9002D3547 /* Main.storyboard in Resources */,
 				58CB347919B9238000B50F19 /* Images.xcassets in Resources */,
 				58CB346819B9238000B50F19 /* InfoPlist.strings in Resources */,
-				58CB347119B9238000B50F19 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,10 +285,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58E7262419B944110033454E /* FLASHCardStore.m in Sources */,
+				58CB349A19B925A300B50F19 /* FLASHSet.m in Sources */,
+				58CB349719B924AA00B50F19 /* FLASHCard.m in Sources */,
+				58254F551A43DC1700511154 /* TBController.m in Sources */,
+				580F4C0D19E388D5009116AD /* FLASHFrontViewController.m in Sources */,
 				58CB346A19B9238000B50F19 /* main.m in Sources */,
 				58CB346E19B9238000B50F19 /* FLASHAppDelegate.m in Sources */,
-				58CB347719B9238000B50F19 /* FLASHDetailViewController.m in Sources */,
-				58CB347419B9238000B50F19 /* FLASHMasterViewController.m in Sources */,
+				58CB347719B9238000B50F19 /* FLASHCardViewController.m in Sources */,
+				58CB349D19B92FB500B50F19 /* FLASHSetStore.m in Sources */,
+				58CB347419B9238000B50F19 /* FLASHSetViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,20 +325,20 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		58CB346F19B9238000B50F19 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				58CB347019B9238000B50F19 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		58CB348819B9238000B50F19 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				58CB348919B9238000B50F19 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		58E0643219FB29F9002D3547 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58E0643319FB29F9002D3547 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -463,6 +499,7 @@
 				58CB349119B9238000B50F19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		58CB349219B9238000B50F19 /* Build configuration list for PBXNativeTarget "FlashCardTests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +508,7 @@
 				58CB349419B9238000B50F19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

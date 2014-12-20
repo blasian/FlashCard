@@ -1,5 +1,5 @@
 //
-//  FLASHMasterViewController.h
+//  FLASHSetViewController.h
 //  FlashCard
 //
 //  Created by Michael Spearman on 9/4/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FLASHMasterViewController : UITableViewController
+@interface FLASHSetViewController : UITableViewController <UITabBarControllerDelegate>
 
 @end

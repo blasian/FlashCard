@@ -1,26 +1,17 @@
 //
-//  FLASHMasterViewController.m
+//  FLASHSetViewController.m
 //  FlashCard
 //
 //  Created by Michael Spearman on 9/4/14.
 //  Copyright (c) 2014 Michael Spearman. All rights reserved.
 //
 
-#import "FLASHMasterViewController.h"
+#import "FLASHSetViewController.h"
+#import "FLASHCardViewController.h"
+#import "FLASHSet.h"
+#import "FLASHSetStore.h"
 
-#import "FLASHDetailViewController.h"
-
-@interface FLASHMasterViewController () {
-    NSMutableArray *_objects;
-}
-@end
-
-@implementation FLASHMasterViewController
-
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-}
+@implementation FLASHSetViewController
 
 - (void)viewDidLoad
 {
@@ -28,23 +19,16 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewSet:)];
     self.navigationItem.rightBarButtonItem = addButton;
 }
 
-- (void)didReceiveMemoryWarning
+- (void)insertNewSet:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+    FLASHSet* newSet = [[FLASHSetStore sharedStore] addSet];
+    NSInteger lastRow = [[[FLASHSetStore sharedStore] allSets] indexOfObject:newSet];
 
-- (void)insertNewObject:(id)sender
-{
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
-    }
-    [_objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
@@ -57,15 +41,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return [[FLASHSetStore sharedStore] allSets].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    FLASHSet *set = [[FLASHSetStore sharedStore] allSets][indexPath.row];
+    cell.textLabel.text = set.title;
     return cell;
 }
 
@@ -78,7 +62,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
+        [[FLASHSetStore sharedStore] removeSet:[[FLASHSetStore sharedStore] allSets][indexPath.row]];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -105,8 +89,8 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
+        FLASHSet *set = [[FLASHSetStore sharedStore] allSets][indexPath.row];
+        [[segue destinationViewController] setCurrentSet:set];
     }
 }
 
