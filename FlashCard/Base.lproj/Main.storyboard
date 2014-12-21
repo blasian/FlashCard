@@ -117,7 +117,7 @@
                         <viewControllerLayoutGuide type="bottom" id="v1d-2g-FY5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oYf-GD-IeR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Card Text" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="z5g-O0-4s7">
@@ -153,8 +153,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" id="ANj-Bi-6Hc" userLabel="Card"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="coa-dK-wRi"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cardText" destination="z5g-O0-4s7" id="R91-xe-bDI"/>
                         <outlet property="editButton" destination="uO5-gU-XN5" id="APN-AA-Ntr"/>
@@ -175,26 +176,6 @@
                 </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1457" y="798"/>
-        </scene>
-        <!--Controller-->
-        <scene sceneID="z2i-Bg-VCY">
-            <objects>
-                <tabBarController id="x6J-J0-Ng2" customClass="TBController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="jin-kQ-c5k"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="oCe-xf-Y9N">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="eWC-Oh-KMS" kind="relationship" relationship="viewControllers" id="nkH-hX-1UX"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fQy-F8-hfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="947" y="798"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

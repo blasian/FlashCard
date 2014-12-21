@@ -50,11 +50,8 @@
     // Init. TabBar for front/back
     frontVC.otherSide = backVC;
     backVC.otherSide = frontVC;
-    TBController *tbc = [[TBController alloc] init];
-    NSArray *controllers = [[NSArray alloc] initWithObjects:frontVC, backVC, nil];
-    tbc.viewControllers = controllers;
     
-    [self.navigationController pushViewController:tbc animated:YES];
+    [self.navigationController pushViewController:frontVC animated:YES];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{

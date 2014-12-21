@@ -40,6 +40,16 @@
     }
 }
 
+- (IBAction)flip:(id)sender
+{
+    NSLog(@"Tapped");
+    if (side == 0) {
+        [self.navigationController pushViewController:_otherSide animated:YES];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 
 - (IBAction)newCard:(id)sender
 {
@@ -64,12 +74,11 @@
     self.otherSide.card = _card;
     [self updateData];
 }
+
 - (IBAction)editSelected:(id)sender {
     if ([self isEditing]) {
-        NSLog(@"then case reached");
         [self setEditing:NO animated:NO];
     } else {
-        NSLog(@"else case reached");
         [self setEditing:YES animated:NO];
     }
 }
@@ -111,5 +120,8 @@
 - (void) viewDidLoad
 {
     [super viewDidLoad];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(flip:)];
+    tapGesture.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:tapGesture];
 }
 @end
