@@ -35,18 +35,29 @@
 {
     if (side == 0) {
         self.cardText.text = _card.front;
+        //self.navigationController.navigationBar.topItem.title = @"Front";
     } else {
         self.cardText.text = _card.back;
+        //self.navigationController.navigationBar.topItem.title = @"Back";
     }
 }
 
 - (IBAction)flip:(id)sender
 {
-    NSLog(@"Tapped");
     if (side == 0) {
-        [self.navigationController pushViewController:_otherSide animated:YES];
+        [UIView animateWithDuration:0.25
+                         animations:^{
+                             [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+                             [self.navigationController pushViewController:_otherSide animated:NO];
+                             [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view cache:NO];
+                         }];
     } else {
-        [self.navigationController popViewControllerAnimated:YES];
+        [UIView animateWithDuration:0.25
+                         animations:^{
+                             [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+                             [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
+                         }];
+        [self.navigationController popViewControllerAnimated:NO];
     }
 }
 
@@ -94,12 +105,10 @@
     if (editing) {
         self.cardText.editable = YES;
         [_editButton setTitle:@"Done"];
-        NSLog(@"Set editing YES");
     } else {
         [_editButton setTitle:@"Edit"];
         [self.cardText resignFirstResponder];
         self.cardText.editable = NO;
-        NSLog(@"Set editing NO");
     }
 }
 
