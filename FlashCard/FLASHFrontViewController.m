@@ -35,10 +35,8 @@
 {
     if (side == 0) {
         self.cardText.text = _card.front;
-        //self.navigationController.navigationBar.topItem.title = @"Front";
     } else {
         self.cardText.text = _card.back;
-        //self.navigationController.navigationBar.topItem.title = @"Back";
     }
 }
 
