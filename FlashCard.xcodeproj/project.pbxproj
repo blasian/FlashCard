@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		580F4C0D19E388D5009116AD /* FLASHFrontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580F4C0C19E388D5009116AD /* FLASHFrontViewController.m */; };
-		58254F551A43DC1700511154 /* TBController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58254F541A43DC1700511154 /* TBController.m */; };
 		58CB345E19B9238000B50F19 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CB345D19B9238000B50F19 /* Foundation.framework */; };
 		58CB346019B9238000B50F19 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CB345F19B9238000B50F19 /* CoreGraphics.framework */; };
 		58CB346219B9238000B50F19 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CB346119B9238000B50F19 /* UIKit.framework */; };
@@ -43,8 +42,6 @@
 /* Begin PBXFileReference section */
 		580F4C0B19E388D5009116AD /* FLASHFrontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLASHFrontViewController.h; sourceTree = "<group>"; };
 		580F4C0C19E388D5009116AD /* FLASHFrontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLASHFrontViewController.m; sourceTree = "<group>"; };
-		58254F531A43DC1700511154 /* TBController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBController.h; sourceTree = "<group>"; };
-		58254F541A43DC1700511154 /* TBController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBController.m; sourceTree = "<group>"; };
 		58CB345A19B9238000B50F19 /* FlashCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58CB345D19B9238000B50F19 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58CB345F19B9238000B50F19 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -134,8 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				58E0643219FB29F9002D3547 /* Main.storyboard */,
-				58254F531A43DC1700511154 /* TBController.h */,
-				58254F541A43DC1700511154 /* TBController.m */,
 				58CB346C19B9238000B50F19 /* FLASHAppDelegate.h */,
 				58CB346D19B9238000B50F19 /* FLASHAppDelegate.m */,
 				580F4C0B19E388D5009116AD /* FLASHFrontViewController.h */,
@@ -288,7 +283,6 @@
 				58E7262419B944110033454E /* FLASHCardStore.m in Sources */,
 				58CB349A19B925A300B50F19 /* FLASHSet.m in Sources */,
 				58CB349719B924AA00B50F19 /* FLASHCard.m in Sources */,
-				58254F551A43DC1700511154 /* TBController.m in Sources */,
 				580F4C0D19E388D5009116AD /* FLASHFrontViewController.m in Sources */,
 				58CB346A19B9238000B50F19 /* main.m in Sources */,
 				58CB346E19B9238000B50F19 /* FLASHAppDelegate.m in Sources */,

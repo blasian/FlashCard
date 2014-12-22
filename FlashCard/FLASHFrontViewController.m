@@ -9,13 +9,14 @@
 #import "FLASHFrontViewController.h"
 #import "FLASHCard.h"
 #import "FLASHCardStore.h"
+#import "FLASHCardViewController.h"
 
 @interface FLASHFrontViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextView *cardText;
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeLeft;
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeRight;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
+@property (strong, nonatomic) UIBarButtonItem *editButton;
 
 @end
 
@@ -92,19 +93,14 @@
     }
 }
 
-- (IBAction)goBack:(id)sender {
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (void) setEditing:(BOOL)editing animated:(BOOL)animated
 {
     [super setEditing:editing animated:animated];
     if (editing) {
         self.cardText.editable = YES;
-        [_editButton setTitle:@"Done"];
+        self.navigationItem.rightBarButtonItem.title = @"Done";
     } else {
-        [_editButton setTitle:@"Edit"];
+        self.navigationItem.rightBarButtonItem.title = @"Edit";
         [self.cardText resignFirstResponder];
         self.cardText.editable = NO;
     }
@@ -114,8 +110,18 @@
 {
     [super viewWillAppear:animated];
     [self updateData];
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    _editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editSelected:)];
+    self.navigationItem.rightBarButtonItem = _editButton;
     [self setEditing:NO animated:NO];
+
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Cards" style:UIBarButtonItemStylePlain target:self action:@selector(backPressed)];
+    self.navigationItem.leftBarButtonItem = backButton;
+}
+
+- (void) backPressed
+{
+    NSLog(@"back pressed");
+    [self.navigationController popToViewController:_parent animated:YES];
 }
 
 - (void) viewWillDisappear:(BOOL)animated

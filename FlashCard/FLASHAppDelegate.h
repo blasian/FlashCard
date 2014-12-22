@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FLASHSetViewController.h"
 
 @interface FLASHAppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -40,12 +40,14 @@
     frontVC.card = card;
     frontVC.side = 0;
     frontVC.title = @"Front";
+    frontVC.parent = self;
     
     // Init. back of card
     FLASHFrontViewController *backVC = [storyboard instantiateViewControllerWithIdentifier:@"Front"];
     backVC.card = card;
     backVC.side = 1;
     backVC.title = @"Back";
+    backVC.parent = self;
     
     // Init. TabBar for front/back
     frontVC.otherSide = backVC;

@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 @class FLASHCard;
+@class FLASHCardViewController;
 
 @interface FLASHFrontViewController : UIViewController <UITextViewDelegate, UITabBarControllerDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic) int side;
 @property (strong, nonatomic) FLASHCard *card;
 @property (strong, nonatomic) FLASHFrontViewController *otherSide;
+@property (strong, nonatomic) FLASHCardViewController *parent;
 
 @end
