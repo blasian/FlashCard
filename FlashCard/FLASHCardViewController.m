@@ -84,6 +84,8 @@
 {
     NSArray *sections = [[FLASHCardStore sharedStore] sections];
     FLASHSection *sect = [sections objectAtIndex:section];
+    if ([sect.rows count] == 0)
+        return nil;
     return sect.title;
 }
 
