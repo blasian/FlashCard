@@ -61,11 +61,19 @@ int i = 0;
 {
     for (FLASHCard *card in [self allCards]) {
         NSArray *cards = [[FLASHCardStore sharedStore] allCards];
+        // Remember prev and next cards before reshuffling
+        NSLog(@"indexOfObject:self = %d", (int) [cards indexOfObject:card]);
+        if ([cards indexOfObject:card] != 0) {
+            FLASHCard *prev = [cards objectAtIndex:[cards indexOfObject:card] - 1];
+            [card setPrevCard:prev];
+        }
+        if ([cards indexOfObject:card] != [cards count] - 1) {
+            FLASHCard *next = [cards objectAtIndex:[cards indexOfObject:card] + 1];
+            [card setNextCard:next];
+        }
         // Section card SHOULD be in but may not be
         if (card.status != card.section) {
-            // Remember index of card before reshuffling
-            [card setIndex:(int) [cards indexOfObject:card]];
-            // Move to correct section
+            // Move card to correct section
             FLASHSection *current = [self.sections objectAtIndex:card.section];
             [current.rows removeObject:card];
             FLASHSection *future = [self.sections objectAtIndex:card.status];

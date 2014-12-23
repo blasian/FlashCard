@@ -79,19 +79,15 @@
 - (IBAction)nextCard:(id)sender
 {
     [[FLASHCardStore sharedStore] reloadData];
-    NSArray *cards = [[FLASHCardStore sharedStore] allCards];
     [self saveData];
-    NSLog(@"INDEX/COUNT = %d/%d", _card.index, (int) [cards count]);
-    if (sender == _swipeLeft) {
-        // Find next card
-        if ((_card.index == [cards count] - 1)) return;
-        _card = [cards objectAtIndex:_card.index + 1];
-    } else if (sender == _swipeRight) {
-        if ((_card.index == 0)) return;
-        _card = [cards objectAtIndex:_card.index - 1];
+    if (sender == _swipeRight) {
+        // Find prev card
+        if (!_card.prevCard) return;
+        _card = _card.prevCard;
     } else {
-        if ((_card.index == [cards count] - 1)) return;
-        _card = [cards objectAtIndex:_card.index];
+        // Find next card
+        if (!_card.nextCard) return;
+        _card = _card.nextCard;
     }
     
     // Update

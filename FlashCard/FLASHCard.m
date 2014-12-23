@@ -11,7 +11,8 @@
 
 @implementation FLASHCard
 @synthesize status;
-@synthesize index;
+@synthesize nextCard;
+@synthesize prevCard;
 
 - (instancetype)init:(id)sender
 {
@@ -20,19 +21,10 @@
         _front = @"Front";
         _back =  @"Back";
         [self setStatus:0];
+        [self setPrevCard:nil];
+        [self setNextCard:nil];
     }
     return self;
-}
-
-- (id)copyWithZone:(NSZone *)zone
-{
-    FLASHCard *card = [[[self class] allocWithZone:zone] init];
-    card.front = self.front;
-    card.back = self.back;
-    card.index = self.index;
-    card.section = self.section;
-    card.status = self.status;
-    return card;
 }
 
 @end

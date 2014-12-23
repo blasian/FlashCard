@@ -11,10 +11,10 @@
 
 @interface FLASHCard : NSObject
 
-- (id) copyWithZone:(NSZone *)zone;
 @property NSString *front;
 @property NSString *back;
-@property (nonatomic) int index;
+@property (strong, nonatomic) FLASHCard *nextCard;
+@property (strong, nonatomic) FLASHCard *prevCard;
 // initial = 0, correct = 1, incorrect = 2
 @property (nonatomic) int section;
 @property (nonatomic) int status;
