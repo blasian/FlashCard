@@ -17,29 +17,45 @@
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeLeft;
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeRight;
 @property (strong, nonatomic) UIBarButtonItem *editButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *correct;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *incorrect;
+@property (strong, nonatomic) NSArray *dataSource;
 
 @end
 
 @implementation FLASHFrontViewController
 @synthesize side;
 
-- (void) saveData
+#pragma mark - screen display
+
+- (void) viewDidLoad
 {
-    if (side == 0) {
-        _card.front = self.cardText.text;
-    } else {
-        _card.back = self.cardText.text;
-    }
+    [super viewDidLoad];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(flip:)];
+    tapGesture.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:tapGesture];
 }
 
-- (void) updateData
+- (void) viewWillAppear:(BOOL)animated
 {
-    if (side == 0) {
-        self.cardText.text = _card.front;
-    } else {
-        self.cardText.text = _card.back;
-    }
+    [super viewWillAppear:animated];
+    [self updateView];
+    _editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editSelected:)];
+    self.navigationItem.rightBarButtonItem = _editButton;
+    [self setEditing:NO animated:NO];
+    // Adding back button
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Cards" style:UIBarButtonItemStylePlain target:self action:@selector(backPressed)];
+    self.navigationItem.leftBarButtonItem = backButton;
+    // Implement Toolbar
+    self.navigationController.toolbarHidden = NO;
+    self.correct = [[UIBarButtonItem alloc] initWithTitle:@"Correct" style:UIBarButtonItemStylePlain target:self action:@selector(setStatus:)];
+    self.incorrect = [[UIBarButtonItem alloc] initWithTitle:@"Incorrect" style:UIBarButtonItemStylePlain target:self action:@selector(setStatus:)];
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    NSArray *items = [NSArray arrayWithObjects:self.correct, spacer, self.incorrect, nil];
+    [self setToolbarItems:items];
 }
+
+#pragma mark - button receivers
 
 - (IBAction)flip:(id)sender
 {
@@ -60,29 +76,27 @@
     }
 }
 
-
-- (IBAction)newCard:(id)sender
+- (IBAction)nextCard:(id)sender
 {
+    [[FLASHCardStore sharedStore] reloadData];
     NSArray *cards = [[FLASHCardStore sharedStore] allCards];
     [self saveData];
-
+    NSLog(@"INDEX/COUNT = %d/%d", _card.index, (int) [cards count]);
     if (sender == _swipeLeft) {
-        if ([cards indexOfObject:_card] == ([cards count] - 1)) {
-            return;
-        }
         // Find next card
-        _card = cards[[cards indexOfObject:_card] + 1];
+        if ((_card.index == [cards count] - 1)) return;
+        _card = [cards objectAtIndex:_card.index + 1];
+    } else if (sender == _swipeRight) {
+        if ((_card.index == 0)) return;
+        _card = [cards objectAtIndex:_card.index - 1];
     } else {
-        if ([cards indexOfObject:_card] == 0) {
-            return;
-        }
-        // Find prev card
-        _card = cards[[cards indexOfObject:_card] - 1];
+        if ((_card.index == [cards count] - 1)) return;
+        _card = [cards objectAtIndex:_card.index];
     }
     
-    // Update views
+    // Update
     self.otherSide.card = _card;
-    [self updateData];
+    [self updateView];
 }
 
 - (IBAction)editSelected:(id)sender {
@@ -106,21 +120,18 @@
     }
 }
 
-- (void) viewWillAppear:(BOOL)animated
+- (IBAction)setStatus:(id)sender
 {
-    [super viewWillAppear:animated];
-    [self updateData];
-    _editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editSelected:)];
-    self.navigationItem.rightBarButtonItem = _editButton;
-    [self setEditing:NO animated:NO];
-
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Cards" style:UIBarButtonItemStylePlain target:self action:@selector(backPressed)];
-    self.navigationItem.leftBarButtonItem = backButton;
+    if (sender == self.correct) {
+        [self.card setStatus:1];
+    } else {
+        [self.card setStatus:2];
+    }
+    [self nextCard:sender];
 }
 
 - (void) backPressed
 {
-    NSLog(@"back pressed");
     [self.navigationController popToViewController:_parent animated:YES];
 }
 
@@ -128,13 +139,26 @@
 {
     [super viewWillDisappear:animated];
     [self saveData];
+    self.navigationController.toolbarHidden = YES;
 }
 
-- (void) viewDidLoad
+# pragma mark - helpers
+
+- (void) saveData
 {
-    [super viewDidLoad];
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(flip:)];
-    tapGesture.numberOfTapsRequired = 1;
-    [self.view addGestureRecognizer:tapGesture];
+    if (side == 0) {
+        _card.front = self.cardText.text;
+    } else {
+        _card.back = self.cardText.text;
+    }
+}
+
+- (void) updateView
+{
+    if (side == 0) {
+        self.cardText.text = _card.front;
+    } else {
+        self.cardText.text = _card.back;
+    }
 }
 @end

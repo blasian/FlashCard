@@ -11,7 +11,7 @@
 #import "FLASHCardStore.h"
 #import "FLASHCard.h"
 #import "FLASHFrontViewController.h"
-#import "TBController.h"
+#import "FLASHSection.h"
 
 @implementation FLASHCardViewController
 
@@ -32,8 +32,8 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    NSArray* cards = [[FLASHCardStore sharedStore] allCards];
-    FLASHCard *card = cards[indexPath.row];
+    FLASHSection* section = [[[FLASHCardStore sharedStore] sections] objectAtIndex:indexPath.section];
+    FLASHCard *card = [section.rows objectAtIndex:indexPath.row];
     
     // Init. front of card
     FLASHFrontViewController *frontVC = [storyboard instantiateViewControllerWithIdentifier:@"Front"];
@@ -61,34 +61,44 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"Delete row");
-    NSArray *cards = [[FLASHCardStore sharedStore] allCards];
-    FLASHCard *card = [cards objectAtIndex:indexPath.row];
-    [[FLASHCardStore sharedStore] removeCard:card];
+    [[FLASHCardStore sharedStore] removeCard:indexPath];
     [self.tableView reloadData];
 }
 
 - (IBAction)addNewCard:(id)sender
 {
-    FLASHCard *newCard = [[FLASHCardStore sharedStore] addCard];
-    NSInteger lastRow = [[[FLASHCardStore sharedStore] allCards] indexOfObject:newCard];
-
-    NSIndexPath *path = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
+    [[FLASHCardStore sharedStore] addCard];
     [self.tableView insertRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationTop];
+    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[FLASHCardStore sharedStore] allCards] count];
+    NSArray *sections = [[FLASHCardStore sharedStore] sections];
+    FLASHSection *sect = [sections objectAtIndex:section];
+    return [sect.rows count];
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSArray *sections = [[FLASHCardStore sharedStore] sections];
+    FLASHSection *sect = [sections objectAtIndex:section];
+    return sect.title;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [[[FLASHCardStore sharedStore] sections] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
     
-    NSArray *items = [[FLASHCardStore sharedStore] allCards];
-    FLASHCard *item = items[indexPath.row];
-    cell.textLabel.text = item.front;
+    FLASHSection *section = [[[FLASHCardStore sharedStore] sections] objectAtIndex:indexPath.section];
+    FLASHCard *card = [section.rows objectAtIndex:indexPath.row];
+    cell.textLabel.text = card.front;
     return cell;
 }
 

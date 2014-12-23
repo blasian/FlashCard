@@ -12,10 +12,12 @@
 
 @interface FLASHCardStore : NSObject
 
-@property (nonatomic, readonly)NSArray *allCards;
+@property (nonatomic, readonly) NSArray *allCards;
+@property (nonatomic, readonly) NSArray *sections;
 
 + (instancetype)sharedStore;
 - (FLASHCard *)addCard;
-- (void)removeCard:(FLASHCard *)card;
-- (void)moveCardFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
+- (void) reloadData;
+- (void)removeCard:(NSIndexPath *)index;
+//- (void)moveCardFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
 @end

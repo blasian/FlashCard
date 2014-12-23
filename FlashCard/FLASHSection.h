@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FLASHCard.h"
 
-@interface FLASHSectionInterface : NSObject
-
+@interface FLASHSection : NSObject
+- (instancetype) initWithTitle:(NSString *)title;
+- (NSArray *) getItems;
+- (void) addRow:(FLASHCard *)card;
+@property (nonatomic, weak) NSString *title;
+@property (nonatomic, strong) NSMutableArray *rows;
+@property (nonatomic, weak) NSArray *items;
 @end

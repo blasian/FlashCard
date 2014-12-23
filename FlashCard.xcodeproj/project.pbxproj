@@ -25,6 +25,7 @@
 		58CB349719B924AA00B50F19 /* FLASHCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CB349619B924AA00B50F19 /* FLASHCard.m */; };
 		58CB349A19B925A300B50F19 /* FLASHSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CB349919B925A300B50F19 /* FLASHSet.m */; };
 		58CB349D19B92FB500B50F19 /* FLASHSetStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CB349C19B92FB500B50F19 /* FLASHSetStore.m */; };
+		58DB05961A48C0F600A48581 /* FLASHSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DB05951A48C0F600A48581 /* FLASHSection.m */; };
 		58E0643419FB29F9002D3547 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58E0643219FB29F9002D3547 /* Main.storyboard */; };
 		58E7262419B944110033454E /* FLASHCardStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E7262319B944110033454E /* FLASHCardStore.m */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,8 @@
 		58CB349919B925A300B50F19 /* FLASHSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLASHSet.m; sourceTree = "<group>"; };
 		58CB349B19B92FB500B50F19 /* FLASHSetStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLASHSetStore.h; sourceTree = "<group>"; };
 		58CB349C19B92FB500B50F19 /* FLASHSetStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLASHSetStore.m; sourceTree = "<group>"; };
+		58DB05941A48C0F600A48581 /* FLASHSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLASHSection.h; sourceTree = "<group>"; };
+		58DB05951A48C0F600A48581 /* FLASHSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLASHSection.m; sourceTree = "<group>"; };
 		58E0643319FB29F9002D3547 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		58E7262219B944110033454E /* FLASHCardStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLASHCardStore.h; sourceTree = "<group>"; };
 		58E7262319B944110033454E /* FLASHCardStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLASHCardStore.m; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				58CB349619B924AA00B50F19 /* FLASHCard.m */,
 				58E7262219B944110033454E /* FLASHCardStore.h */,
 				58E7262319B944110033454E /* FLASHCardStore.m */,
+				58DB05941A48C0F600A48581 /* FLASHSection.h */,
+				58DB05951A48C0F600A48581 /* FLASHSection.m */,
 				58CB349B19B92FB500B50F19 /* FLASHSetStore.h */,
 				58CB349C19B92FB500B50F19 /* FLASHSetStore.m */,
 				58CB349819B925A300B50F19 /* FLASHSet.h */,
@@ -282,6 +287,7 @@
 			files = (
 				58E7262419B944110033454E /* FLASHCardStore.m in Sources */,
 				58CB349A19B925A300B50F19 /* FLASHSet.m in Sources */,
+				58DB05961A48C0F600A48581 /* FLASHSection.m in Sources */,
 				58CB349719B924AA00B50F19 /* FLASHCard.m in Sources */,
 				580F4C0D19E388D5009116AD /* FLASHFrontViewController.m in Sources */,
 				58CB346A19B9238000B50F19 /* main.m in Sources */,

@@ -6,8 +6,29 @@
 //  Copyright (c) 2014 Michael Spearman. All rights reserved.
 //
 
-#import "FLASHSectionInterface.h"
+#import "FLASHSection.h"
 
-@implementation FLASHSectionInterface
+@implementation FLASHSection
 
+- (instancetype)initWithTitle:(NSString *)title
+{
+    self = [super init];
+    if (self) {
+        self.title = title;
+        self.rows = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+- (NSArray *) getItems {
+    NSMutableArray *items = [[NSMutableArray alloc] init];
+    for (FLASHCard *card in self.rows) {
+        [items addObject:card];
+    }
+    return items;
+}
+- (void) addRow:(FLASHCard *)card
+{
+    [self.rows insertObject:card atIndex:0];
+}
 @end

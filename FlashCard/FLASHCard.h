@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-@class FLASHSet;
+@class FLASHSection;
 
 @interface FLASHCard : NSObject
 
+- (id) copyWithZone:(NSZone *)zone;
 @property NSString *front;
 @property NSString *back;
-@property FLASHSet *container;
+@property (nonatomic) int index;
+// initial = 0, correct = 1, incorrect = 2
+@property (nonatomic) int section;
+@property (nonatomic) int status;
 
 @end

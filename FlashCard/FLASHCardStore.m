@@ -8,10 +8,9 @@
 
 #import "FLASHCardStore.h"
 #import "FLASHCard.h"
+#import "FLASHSection.h"
 
 @interface FLASHCardStore ()
-
-@property (nonatomic) NSMutableArray *privateCards;
 
 @end
 
@@ -38,14 +37,42 @@ int i = 0;
 {
     self = [super init];
     if (self) {
-        _privateCards = [[NSMutableArray alloc] init];
+        FLASHSection *unused = [[FLASHSection alloc] initWithTitle:@"Unused"];
+        FLASHSection *correct = [[FLASHSection alloc] initWithTitle:@"Correct"];
+        FLASHSection *incorrect = [[FLASHSection alloc] initWithTitle:@"Incorrect"];
+        _sections = [[NSMutableArray alloc] initWithObjects: unused, correct, incorrect, nil];
     }
     return self;
 }
 
 - (NSArray *)allCards
 {
-    return self.privateCards;
+    NSMutableArray *all = [[NSMutableArray alloc] init];
+    for (FLASHSection *section in self.sections) {
+        NSArray *rows = [section getItems];
+        for (FLASHCard *card in rows) {
+            [all addObject:card];
+        }
+    }
+    return all;
+}
+
+- (void)reloadData
+{
+    for (FLASHCard *card in [self allCards]) {
+        NSArray *cards = [[FLASHCardStore sharedStore] allCards];
+        // Section card SHOULD be in but may not be
+        if (card.status != card.section) {
+            // Remember index of card before reshuffling
+            [card setIndex:(int) [cards indexOfObject:card]];
+            // Move to correct section
+            FLASHSection *current = [self.sections objectAtIndex:card.section];
+            [current.rows removeObject:card];
+            FLASHSection *future = [self.sections objectAtIndex:card.status];
+            [future.rows addObject:card];
+            card.section = card.status;
+        }
+    }
 }
 
 - (FLASHCard *)addCard
@@ -53,22 +80,23 @@ int i = 0;
     FLASHCard *card = [[FLASHCard alloc] init];
     card.front = [@(i) stringValue];
     card.back = [@(i) stringValue];
-    [_privateCards addObject:card];
+    FLASHSection *section = [self.sections objectAtIndex:0];
+    [section addRow:card];
     i++;
     return card;
 }
 
-- (void)removeCard:(FLASHCard *)card
+- (void)removeCard:(NSIndexPath *)index
 {
-    [_privateCards removeObjectIdenticalTo:card];
+    [[self.sections objectAtIndex:index.section] removeObjectAtIndex:index.row];
 }
 
-- (void)moveCardFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex
-{
-    FLASHCard *card = [_privateCards objectAtIndex:fromIndex];
-    [_privateCards removeObjectAtIndex:fromIndex];
-    [_privateCards insertObject:card atIndex:toIndex];
-}
+//- (void)moveCardFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex
+//{
+//    FLASHCard *card = [_privateCards objectAtIndex:fromIndex];
+//    [_privateCards removeObjectAtIndex:fromIndex];
+//    [_privateCards insertObject:card atIndex:toIndex];
+//}
 
 
 
