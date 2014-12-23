@@ -96,7 +96,8 @@ int i = 0;
 
 - (void)removeCard:(NSIndexPath *)index
 {
-    [[self.sections objectAtIndex:index.section] removeObjectAtIndex:index.row];
+    FLASHSection *section = [self.sections objectAtIndex:index.section];
+    [section.rows removeObjectAtIndex:index.row];
 }
 
 //- (void)moveCardFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex
